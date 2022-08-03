@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ECommerceShoppingCart.Models.Product>
+<h2> My Products </h2>
+<table class="table table-bordered">
+
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Photo</th>
+        <th>Buy</th>
+
+    </tr>
+
+    @foreach(var product in ViewBag.products)
+            {
+<tr>
+    <td>@product.Id</td>
+    <td>@product.Name</td>
+    <td>@product.Price</td>
+    <td><img scr="~/images/@product.Photo" height="100" width="100"/></td>
+    <td> <a asp-action="Buy" asp-controller="Cart" asp-route-id="@product.Id">Buy</a></td>
+</tr>
+            }
+</table>
